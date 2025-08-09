@@ -1,0 +1,130 @@
+body {
+  background: linear-gradient(135deg, #FFEFBA, #FFFFFF);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label-container {
+  /* ラベルの背景色 */
+
+}
+
+.label-title {
+  background-color: #ffb700;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  border-bottom: 2px solid #aaa;
+}
+
+.label-score {
+  background-color: #ffb700;
+  /* ラベルの背景色 */
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  border-bottom: 2px solid #aaa;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #FFC1B6;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  color: #FF6F61;
+  text-shadow: 2px 2px 5px #FFC1B6;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h3 {
+  color: #FF6F61;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+form {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+input[type="number"] {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #FF6F61;
+  border-radius: 8px;
+  width: 120px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #FF3B2F;
+  outline: none;
+}
+
+button {
+  background-color: #FF6F61;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #FF3B2F;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  max-width: 320px;
+  width: 100%;
+  background-color: #FFF0F0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 111, 97, 0.2);
+}
+
+li {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #FFB3AA;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.nav-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.message {
+  color: #FF6F61;
+  font-weight: bold;
+  margin-top: 20px;
+}
