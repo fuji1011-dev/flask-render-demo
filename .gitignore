@@ -1,0 +1,5 @@
+# Pythonのバイトコードキャッシュを無視
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
