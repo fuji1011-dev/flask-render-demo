@@ -3,50 +3,51 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>みんなのど真ん中</title>
+  <title>みんなのまんなか - スタート</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-
-  <!-- 上部ラベル -->
-  <div class="label-title">
-    <h1>みんなのどまんなか</h1>
+  <div id="header-title">
+    <span>
+      <a href="/">みんなのまんなか</a>
+    </span>
   </div>
 
-  <h2>{{ question }}</h2>
+  <main class="start-page">
+    <p class="intro-text">みんなの予想を当てて<br>まんなかを狙おう！</p>
+    <button class="start-button" onclick="location.href='{{ url_for('game') }}'">ゲームスタート</button>
+  </main>
 
-  <form action="{{ url_for('question', qid=qid) }}" method="POST">
-    <input type="number" name="price" min="0" />
-    <button type="submit">送信</button>
-  </form>
-
-  {% if answered %}
-  <div class="label-score">
-    <h4>ド真ん中スコア </h4>
-    <h1>{{ score }} 点</h1>
-  </div>
-
-  <h3>みんなの感覚</h3>
-  <ul>
-    <li>ド真ん中: {{ central_avg }}</li>
-    <li>あなたの回答: {{ your_answer }} </li>
-  </ul>
-  {% else %}
-  <p class="message">回答を送信すると、集計結果が表示されます！</p>
-  {% endif %}
-
-  <div class="nav-buttons">
-    {% if qid > 0 %}
-    <a href="{{ url_for('question', qid=qid-1) }}">
-      <button>前へ</button>
+  <div class="request-section">
+    <p>🎯 現在、お題を募集しています！<br>あなたのアイデアがお題になるかも…</p>
+    <a href="{{ url_for('request_question') }}">
+      <button class="btn-requesttons">お題を投稿する</button>
     </a>
-    {% endif %}
-    {% if qid < max_qid %} <a href="{{ url_for('question', qid=qid+1) }}">
-      <button>次へ</button>
-      </a>
-      {% endif %}
   </div>
+
+  <div class="sns-share">
+    <p>みんなにシェアしよう！</p>
+    <a href="https://twitter.com/intent/tweet?text=みんなのどまんなかで遊ぼう！&url={{ request.url_root }}" target="_blank"
+      rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
+      Twitterでシェア
+    </a>
+    <a href="https://social-plugins.line.me/lineit/share?url={{ request.url_root }}" target="_blank" rel="noopener"
+      class="btn-line" aria-label="LINEでシェア">
+      LINEでシェア
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_root }}" target="_blank" rel="noopener"
+      class="btn-facebook" aria-label="Facebookでシェア">
+      Facebookでシェア
+    </a>
+  </div>
+
+
+
+  <footer class="footer">
+    <p>© 2025 みんなのまんなか All Rights Reserved.</p>
+  </footer>
+
 
 </body>
 

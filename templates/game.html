@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>みんなのまんなか</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+  <!-- 上部ラベル -->
+  <div id="header-title">
+    <span>
+      <a href="/">みんなのまんなか</a>
+    </span>
+  </div>
+
+  <!-- 何問目か -->
+  {% if answered %}
+  <h1>{{ answered_count }} / {{ total_questions }} 問目</h1>
+  {% else %}
+  <h1>{{ answered_count + 1 }} / {{ total_questions }} 問目</h1>
+  {% endif %}
+
+  <!-- お題 -->
+  <h1>{{ question }}</h1>
+
+  {% if answered %}
+
+  <!-- スコア表示 -->
+  <div class="score-display">
+    <h3>スコア</h3>
+    <div class="score-value">{{ score }} 点</div>
+  </div>
+
+  <!-- 答えの比較 -->
+  <div class="answer-comparison">
+    <div class="answer-card center-answer">
+      <h4>どまんなか</h4>
+      <p> {{ central_avg }}</p>
+    </div>
+    <div class="answer-card your-answer">
+      <h4>あなたの回答</h4>
+      <p>{{ your_answer }}</p>
+    </div>
+  </div>
+
+  <!-- 次へボタン（みんなの回答の上に配置） -->
+  <div class="nav-buttons">
+    {% if answered_count >= total_questions %}
+    <a href="{{ url_for('result') }}">
+      <button>結果を見る</button>
+    </a>
+    {% else %}
+    <a href="{{ url_for('question', qid=next_qid) }}">
+      <button>次のお題へ</button>
+    </a>
+    {% endif %}
+  </div>
+
+  <!-- みんなの回答 -->
+  <h2>👤みんなの回答👤</h2>
+  <ul>
+    {% for ans in stats.all_answers %}
+    <li>👤　{{ ans }}</li>
+    {% endfor %}
+  </ul>
+
+  {% else %}
+  <!-- 未回答時は送信フォームのみ -->
+  <form action="{{ url_for('question', qid=qid) }}" method="POST" class="form-horizontal">
+    <input type="number" name="price" min="0" required />
+    <button type="submit">決定</button>
+  </form>
+  {% endif %}
+
+</body>
+
+</html>

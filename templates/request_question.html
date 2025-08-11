@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>みんなのまんなか</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- 上部ラベル -->
+    <div id="header-title">
+        <span>
+            <a href="/">みんなのまんなか</a>
+        </span>
+    </div>
+
+    <h6>お題を入力して送信してください<br>
+        お題は整数で回答できるものにしてください</h6>
+
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash-messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('request_question') }}" method="POST" class="form-vertical">
+        <input type="text" name="question" min="0" />
+        <button type="submit">送信</button>
+    </form>
+
+
+    <div id="header">
+        <span>
+            <a href="/">TOP</a>
+        </span>
+    </div>
+
+</body>
+
+</html>

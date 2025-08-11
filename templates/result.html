@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>結果 - みんなのまんなか</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div id="header-title">
+        <span>
+            <a href="/">みんなのまんなか</a>
+        </span>
+    </div>
+
+    <!-- 結果コンテナ -->
+    <div class="result-container">
+
+        <div class="result-header">🎉結果発表🎉</div>
+
+        <!-- スコア表示 -->
+
+        <div class="total-score">
+            <h3>どまんなかスコア</h3>
+            <h4>{{ total_score }} 点</h4>
+        </div>
+
+        {% for q in questions %}
+        <div class="result-question-card">
+            <div class="result-header">
+                <span>Q{{ loop.index }}: {{ q.question }}</span>
+                <span class="result-score">{{ q.score }} 点</span>
+            </div>
+            <div class="result-body">
+                <p class="you-answer"><strong>あなたの回答: {{ q.your_answer }}</strong></p>
+                <p class="others-answer"><strong>どまんなか: {{ q.center_value }}</strong></p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="sns-share">
+            <p>結果をみんなにシェアしよう！</p>
+            <a href="https://twitter.com/intent/tweet?text=みんなのどまんなかで遊ぼう！&url={{ request.url_root }}" target="_blank"
+                rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
+                Twitter
+            </a>
+            <a href="https://social-plugins.line.me/lineit/share?url={{ request.url_root }}" target="_blank"
+                rel="noopener" class="btn-line" aria-label="LINEでシェア">
+                LINE
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_root }}" target="_blank" rel="noopener"
+                class="btn-facebook" aria-label="Facebookでシェア">
+                Facebook
+            </a>
+        </div>
+    </div>
+
+
+
+    <div id="header">
+        <span>
+            <a href="/">TOP</a>
+        </span>
+    </div>
+</body>
+
+</html>
