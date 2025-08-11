@@ -18,13 +18,13 @@
 
   <!-- 何問目か -->
   {% if answered %}
-  <h1>{{ answered_count }} / {{ total_questions }} 問目</h1>
+  <p class="question-count-text">{{ answered_count }} / {{ total_questions }} 問目</p>
   {% else %}
-  <h1>{{ answered_count + 1 }} / {{ total_questions }} 問目</h1>
+  <p class="question-count-text">{{ answered_count + 1 }} / {{ total_questions }} 問目</p>
   {% endif %}
 
   <!-- お題 -->
-  <h1>{{ question }}</h1>
+  <p class="question-text">{{ question }}</p>
 
   {% if answered %}
 
@@ -50,31 +50,39 @@
   <div class="nav-buttons">
     {% if answered_count >= total_questions %}
     <a href="{{ url_for('result') }}">
-      <button>結果を見る</button>
+      <button class="next-button">結果を見る</button>
     </a>
     {% else %}
     <a href="{{ url_for('question', qid=next_qid) }}">
-      <button>次のお題へ</button>
+      <button class="next-button">次のお題へ</button>
     </a>
     {% endif %}
   </div>
 
   <!-- みんなの回答 -->
-  <h2>👤みんなの回答👤</h2>
-  <ul>
-    {% for ans in stats.all_answers %}
-    <li>👤　{{ ans }}</li>
-    {% endfor %}
-  </ul>
+  <div class="other-answer">
+
+    <h1>👤みんなの回答👤</h1>
+    <ul>
+      {% for ans in stats.all_answers %}
+      <li><span class="icon">👤</span><span class="value">{{ ans }}</span></li>
+
+      {% endfor %}
+    </ul>
+  </div>
 
   {% else %}
   <!-- 未回答時は送信フォームのみ -->
-  <form action="{{ url_for('question', qid=qid) }}" method="POST" class="form-horizontal">
-    <input type="number" name="price" min="0" required />
-    <button type="submit">決定</button>
+  <form action="{{ url_for('question', qid=qid) }}" method="POST" class="form-vertical">
+    <input type="number" name="price" min="0" required class="answer-input" />
+    <button class="kettei-button">決定</button>
   </form>
+
   {% endif %}
 
+  <footer class="footer">
+    <p>© 2025 みんなのまんなか All Rights Reserved.</p>
+  </footer>
 </body>
 
 </html>

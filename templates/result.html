@@ -26,55 +26,54 @@
         </span>
     </div>
 
-    <!-- 結果コンテナ -->
-    <div class="result-container">
+    <!-- 結果 -->
+    <div class="result-header">🎉結果発表🎉</div>
 
-        <div class="result-header">🎉結果発表🎉</div>
+    <!-- スコア表示 -->
 
-        <!-- スコア表示 -->
-
-        <div class="total-score">
-            <h3>どまんなかスコア</h3>
-            <h4>{{ total_score }} 点</h4>
+    <div class="total-score">
+        <h3>どまんなかスコア</h3>
+        <h4>{{ total_score }} 点</h4>
+    </div>
+    <div class="sns-share">
+        <p>結果をみんなにシェアしよう！</p>
+        <a href="https://twitter.com/intent/tweet?text=私のまんなかスコア🎯は{{ total_score }}点でした！🎉😊%0A%0A【スマホに保存されている写真は平均何枚?】%0Aみんなの予想のまんなかを狙うゲーム！%0A君の感覚はまんなか？チャレンジしてみよう!%0A&url={{ request.url_root }}"
+            target="_blank" rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
+            Twitter
+        </a>
+        <a href="https://social-plugins.line.me/lineit/share?url={{ request.url_root }}" target="_blank" rel="noopener"
+            class="btn-line" aria-label="LINEでシェア">
+            LINE
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_root }}" target="_blank" rel="noopener"
+            class="btn-facebook" aria-label="Facebookでシェア">
+            Facebook
+        </a>
+    </div>
+    {% for q in questions %}
+    <div class="result-question-card">
+        <div class="card-header">
+            <span class="question-title">Q{{ loop.index }}: {{ q.question }}</span>
+            <span class="result-score">{{ q.score }} 点</span>
         </div>
-
-        {% for q in questions %}
-        <div class="result-question-card">
-            <div class="result-header">
-                <span>Q{{ loop.index }}: {{ q.question }}</span>
-                <span class="result-score">{{ q.score }} 点</span>
-            </div>
-            <div class="result-body">
-                <p class="you-answer"><strong>あなたの回答: {{ q.your_answer }}</strong></p>
-                <p class="others-answer"><strong>どまんなか: {{ q.center_value }}</strong></p>
-            </div>
-        </div>
-        {% endfor %}
-
-        <div class="sns-share">
-            <p>結果をみんなにシェアしよう！</p>
-            <a href="https://twitter.com/intent/tweet?text=私のまんなかスコア🎯は{{ total_score }}点でした！🎉😊%0A%0A【スマホに保存されている写真は平均何枚?】%0Aみんなの予想のまんなかを狙うゲーム！%0A君の感覚はまんなか？チャレンジしてみよう!%0A&url={{ request.url_root }}"
-                target="_blank" rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
-                Twitterでシェア
-            </a>
-            <a href="https://social-plugins.line.me/lineit/share?url={{ request.url_root }}" target="_blank"
-                rel="noopener" class="btn-line" aria-label="LINEでシェア">
-                LINE
-            </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_root }}" target="_blank" rel="noopener"
-                class="btn-facebook" aria-label="Facebookでシェア">
-                Facebook
-            </a>
+        <div class="result-body">
+            <p class="you-answer">あなたの回答: {{ q.your_answer }}</p>
+            <p class="others-answer">どまんなか: {{ q.center_value }}</p>
         </div>
     </div>
+    {% endfor %}
 
 
-
+    <footer class="footer">
+        <p>© 2025 みんなのまんなか All Rights Reserved.</p>
+    </footer>
     <div id="header">
         <span>
             <a href="/">TOP</a>
         </span>
     </div>
+
+
 </body>
 
 </html>

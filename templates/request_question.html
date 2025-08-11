@@ -16,9 +16,8 @@
         </span>
     </div>
 
-    <h6>お題を入力して送信してください<br>
-        お題は整数で回答できるものにしてください</h6>
-
+    <p class="request-post-text">お題を入力して送信してください<br>
+        お題は整数で回答できるものにしてください</p>
 
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -30,11 +29,10 @@
     {% endif %}
     {% endwith %}
 
-    <form action="{{ url_for('request_question') }}" method="POST" class="form-vertical">
-        <input type="text" name="question" min="0" />
-        <button type="submit">送信</button>
+    <form action="{{ url_for('request_question') }}" method="POST" class="request-post-form">
+        <input type="text" name="question" min="0" class="request-text-form" />
+        <button type=" submit" class="request-post-button">送信</button>
     </form>
-
 
     <div id="header">
         <span>
@@ -42,6 +40,9 @@
         </span>
     </div>
 
+    <footer class="footer">
+        <p>© 2025 みんなのまんなか All Rights Reserved.</p>
+    </footer>
 </body>
 
 </html>

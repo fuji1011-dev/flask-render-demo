@@ -31,26 +31,27 @@
     <button class="start-button" onclick="location.href='{{ url_for('game') }}'">ゲームスタート</button>
   </main>
 
-  <div class="request-section">
-    <p>🎯 現在、お題を募集しています！<br>あなたのアイデアがお題になるかも…</p>
-    <a href="{{ url_for('request_question') }}">
-      <button class="btn-requesttons">お題を投稿する</button>
-    </a>
-  </div>
+  <p class="request-text">
+    🎯 現在、お題を募集しています！<br>あなたのアイデアがお題になるかも…
+  </p>
+
+  <a href="{{ url_for('request_question') }}">
+    <button class="btn-top-requesttons">お題を投稿する</button>
+  </a>
 
   <div class="sns-share">
     <p>みんなにシェアしよう！</p>
     <a href="https://twitter.com/intent/tweet?text=【スマホに保存されている写真は平均何枚?】%0Aみんなの予想のまんなかを狙うゲーム！%0A君の感覚はまんなか？チャレンジしてみよう!%0A&url={{ request.url_root }}"
       target="_blank" rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
-      Twitterでシェア
+      Twitter
     </a>
     <a href="https://social-plugins.line.me/lineit/share?url={{ request.url_root }}" target="_blank" rel="noopener"
       class="btn-line" aria-label="LINEでシェア">
-      LINEでシェア
+      LINE
     </a>
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_root }}" target="_blank" rel="noopener"
       class="btn-facebook" aria-label="Facebookでシェア">
-      Facebookでシェア
+      Facebook
     </a>
   </div>
 
