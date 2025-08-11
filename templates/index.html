@@ -5,6 +5,18 @@
   <meta charset="UTF-8" />
   <title>みんなのまんなか - スタート</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="みんなのまんなか - みんなの予想でスコアを競おう！" />
+  <meta name="twitter:description" content="みんなの予想を集めて、まんなかを狙う新感覚ゲーム！あなたのセンスを試してみませんか？" />
+  <meta name="twitter:image" content="{{ url_for('static', filename='image/twitter-thum.jpeg') }}">
+
+  <meta property="og:title" content="みんなのまんなか - みんなの予想でスコアを競おう！" />
+  <meta property="og:description" content="みんなの予想を集めて、まんなかを狙う新感覚ゲーム！あなたのセンスを試してみませんか？" />
+  <meta property="og:image" content="{{ url_for('static', filename='image/twitter-thum.jpeg') }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.url }}" />
+
 </head>
 
 <body>
@@ -28,7 +40,7 @@
 
   <div class="sns-share">
     <p>みんなにシェアしよう！</p>
-    <a href="https://twitter.com/intent/tweet?text=みんなのどまんなかで遊ぼう！&url={{ request.url_root }}" target="_blank"
+    <a href="https://twitter.com/intent/tweet?text=みんなのまんなかで遊ぼう！&url={{ request.url_root }}" target="_blank"
       rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
       Twitterでシェア
     </a>
