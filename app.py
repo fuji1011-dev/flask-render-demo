@@ -20,7 +20,7 @@ def load_questions():
     global questions_cache
     with get_conn() as conn:
         with conn.cursor() as c:
-            c.execute('SELECT id, question FROM "Questions" WHERE is_active = TRUE LIMIT 5')
+            c.execute('SELECT id, question FROM "Questions" WHERE is_active = TRUE ORDER BY RANDOM() LIMIT 5')
             questions_cache = c.fetchall()
 
 def load_answers():
