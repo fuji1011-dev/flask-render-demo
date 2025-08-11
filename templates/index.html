@@ -9,7 +9,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="みんなのまんなか - みんなの予想でスコアを競おう！" />
   <meta name="twitter:description" content="みんなの予想を集めて、まんなかを狙う新感覚ゲーム！あなたのセンスを試してみませんか？" />
-  <meta name="twitter:image" content="{{ url_for('static', filename='image/twitter-thum.jpeg') }}">
+  <meta name="twitter:image" content="{{ url_for('static', filename='image/twitter-thum.jpeg', _external=True) }}">
 
   <meta property="og:title" content="みんなのまんなか - みんなの予想でスコアを競おう！" />
   <meta property="og:description" content="みんなの予想を集めて、まんなかを狙う新感覚ゲーム！あなたのセンスを試してみませんか？" />
@@ -40,8 +40,8 @@
 
   <div class="sns-share">
     <p>みんなにシェアしよう！</p>
-    <a href="https://twitter.com/intent/tweet?text=みんなのまんなかで遊ぼう！&url={{ request.url_root }}" target="_blank"
-      rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
+    <a href="https://twitter.com/intent/tweet?text=【スマホに保存されている写真は平均何枚?】%0Aみんなの予想のまんなかを狙うゲーム！%0A君の感覚はまんなか？チャレンジしてみよう!%0A&url={{ request.url_root }}"
+      target="_blank" rel="noopener" class="btn-twitter" aria-label="Twitterでシェア">
       Twitterでシェア
     </a>
     <a href="https://social-plugins.line.me/lineit/share?url={{ request.url_root }}" target="_blank" rel="noopener"
@@ -53,8 +53,6 @@
       Facebookでシェア
     </a>
   </div>
-
-
 
   <footer class="footer">
     <p>© 2025 みんなのまんなか All Rights Reserved.</p>
